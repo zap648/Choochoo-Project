@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RailNode : MonoBehaviour
+public class StationManager : MonoBehaviour
 {
+    [SerializeField] List<StationNode> stationNodes;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,11 +16,5 @@ public class RailNode : MonoBehaviour
     void Update()
     {
         
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.up);
     }
 }
