@@ -939,7 +939,7 @@ MonoBehaviour:
   stationPlan:
   - {fileID: 1370885299}
   - {fileID: 2135721534}
-  waitTime: 0
+  waitTime: 3
   b_repeating: 1
 --- !u!4 &1751974880
 Transform:
@@ -950,7 +950,7 @@ Transform:
   m_GameObject: {fileID: 1751974878}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8, y: 0, z: 6}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1016,7 +1016,7 @@ PrefabInstance:
     - target: {fileID: 3694905187819862895, guid: 04f788d1daced8345b69a0e60640f28c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 0.411
       objectReference: {fileID: 0}
     - target: {fileID: 3694905187819862895, guid: 04f788d1daced8345b69a0e60640f28c,
         type: 3}
@@ -1026,7 +1026,7 @@ PrefabInstance:
     - target: {fileID: 3694905187819862895, guid: 04f788d1daced8345b69a0e60640f28c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8
+      value: -7.199
       objectReference: {fileID: 0}
     - target: {fileID: 3694905187819862895, guid: 04f788d1daced8345b69a0e60640f28c,
         type: 3}
