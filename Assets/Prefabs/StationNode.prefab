@@ -44,6 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65b592d9dc6131a4ca1b9d79ef30899f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rails:
+  neighbours:
   - {fileID: 0}
   - {fileID: 0}
+  neighbourDistance: []
+  neighbourDirection: []
+  looping: 0
+  stationNodes: []
