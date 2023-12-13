@@ -11,6 +11,7 @@ public class RailNode : MonoBehaviour
     [SerializeField] public List<RailNode> neighbours;    // Relevant rail nodes
     [SerializeField] public List<float> neighbourDistance;
     [SerializeField] public List<Quaternion> neighbourDirection;
+    public float distance;
 
     // Start is called before the first frame update
     void Start()

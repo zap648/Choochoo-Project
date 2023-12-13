@@ -270,6 +270,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 82611589970911861, guid: e956ed5286f745247806e0b492828c23,
         type: 3}
+      propertyPath: railManager
+      value: 
+      objectReference: {fileID: 1550639807}
+    - target: {fileID: 82611589970911861, guid: e956ed5286f745247806e0b492828c23,
+        type: 3}
       propertyPath: rails.Array.data[0]
       value: 
       objectReference: {fileID: 1009176015}
@@ -1343,6 +1348,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 82611589970911861, guid: e956ed5286f745247806e0b492828c23,
         type: 3}
+      propertyPath: railManager
+      value: 
+      objectReference: {fileID: 1550639807}
+    - target: {fileID: 82611589970911861, guid: e956ed5286f745247806e0b492828c23,
+        type: 3}
       propertyPath: rails.Array.data[0]
       value: 
       objectReference: {fileID: 1009176015}
@@ -1792,6 +1802,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 82611589970911861, guid: e956ed5286f745247806e0b492828c23,
         type: 3}
+      propertyPath: railManager
+      value: 
+      objectReference: {fileID: 1550639807}
+    - target: {fileID: 82611589970911861, guid: e956ed5286f745247806e0b492828c23,
+        type: 3}
       propertyPath: rails.Array.data[0]
       value: 
       objectReference: {fileID: 1321760791}
@@ -2055,7 +2070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ca836a9856f0a043af7a3d5ea2c5d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  neighbours:
+  nodes:
   - {fileID: 1321760791}
   - {fileID: 877977840}
   - {fileID: 1995279609}
@@ -2069,8 +2084,6 @@ MonoBehaviour:
   - {fileID: 1349412125}
   - {fileID: 1366114430}
   - {fileID: 1515902333}
-  neighbourDistance: []
-  neighbourDirection: []
   looping: 0
   stationNodes:
   - {fileID: 1370885299}
@@ -2695,6 +2708,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1989839893}
     m_Modifications:
+    - target: {fileID: 82611589970911861, guid: e956ed5286f745247806e0b492828c23,
+        type: 3}
+      propertyPath: railManager
+      value: 
+      objectReference: {fileID: 1550639807}
     - target: {fileID: 82611589970911861, guid: e956ed5286f745247806e0b492828c23,
         type: 3}
       propertyPath: rails.Array.data[0]

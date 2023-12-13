@@ -1,10 +1,14 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class StationNode : MonoBehaviour
 {
+    [SerializeField] RailManager railManager;
+
     [Header("Neighbour node info")]
     [SerializeField] public List<RailNode> neighbours;    // Relevant rail nodes
     [SerializeField] public List<float> neighbourDistance;
@@ -16,13 +20,9 @@ public class StationNode : MonoBehaviour
     void Start()
     {
         GetNeighbourInfo();
-        transform.rotation = neighbourDirection[0];
-
-        // OBS! Planning to implement the station snapping on to the railway!
-        for (int i = 0; i < neighbours.Count; i++)
-            neighbourDistance.Add(Vector3.Distance(neighbours[i].transform.position, this.transform.position));
-
         FindStationRoutes();
+
+        transform.rotation = neighbourDirection[0];
     }
 
     void GetNeighbourInfo()
@@ -36,24 +36,141 @@ public class StationNode : MonoBehaviour
 
     void FindStationRoutes()
     {
-        List<float> distance = new List<float>();
-        List<bool> sptSet = new List<bool>();
-        List<RailNode> SPT = new List<RailNode>();
+        // Attempt 1
+        //float nodeDistance = float.MaxValue;
 
-        int start1 = 0, start2 = 0;
+        //// Initialize an empty set of visited nodes and nodes to visit
+        //List<RailNode> visited = new List<RailNode>();
+        //Queue<RailNode> toVisit = new Queue<RailNode>();
 
-        
-        for (int i = 0; i < neighbours.Count - 1; i++)
-        {
-            sptSet.Add(false);
-            distance.Add(float.MaxValue);
-            if (neighbours[i] == this.neighbours[0]) start1 = i;
-            else if (neighbours[i] == this.neighbours[1]) start2 = i;
-        }
+        //RailNode target = stations[0].neighbours[0];
+
+        //toVisit.Enqueue(target);
+
+        //while (toVisit.Count > 0)
+        //{
+        //    RailNode currentNode = toVisit.Dequeue();
+        //    // Calculate the node distance
+        //    if (currentNode == target)
+        //    {
+        //        nodeDistance = 0;
+        //    }
+
+        //    // Add to queue
+        //    visited.Add(currentNode);
+
+        //    // Find available next nodes
+        //    List<RailNode> nextNodes = currentNode.neighbours;
+        //    List<RailNode> filteredNodes = nextNodes.Where(nodes => !visited.Contains(nodes)).ToList();
+
+        //    // Enqueue them
+        //    foreach (var node in filteredNodes)
+        //    {
+        //        // Visit node and get distance
+        //        float distance;
+        //        float newDistance;
+        //        for (int i = 0; i < node.neighbours.Count; i++)
+        //        {
+        //            if (node.neighbours[i] == currentNode)
+        //            {
+        //                distance = neighbourDistance[i];
+        //                newDistance = nodeDistance + distance;
+        //                nodeDistance = Mathf.Min(nodeDistance, newDistance);
+        //                break;
+        //            }
+        //        }
+
+        //        // Schedule node to be visited
+        //        toVisit.Enqueue(node);
+        //    }
+        //}
+
+        //// Check these to see if we're reaching a station
+        //List<List<RailNode>> alerterNodes = new List<List<RailNode>>();
+        //for (int i = 0; i < railManager.stationNodes.Count; i++)
+        //{
+        //    alerterNodes.Add(railManager.stationNodes[i].neighbours);
+        //}
+
+        // Attempt 2
+        //// Initialize an empty set of visited nodes and nodes to visit
+        //List<RailNode> visited = new List<RailNode>();
+
+        //// Initialize a list for distances and set all distances as float.max
+        //List<float> distances = new List<float>();
+        //foreach (RailNode node in railManager.nodes)
+        //{ distances.Add(float.MaxValue); }
+
+        //// Insert source itself in priority and initialize its distance as 0;
+        //for (int i = 0; i < railManager.nodes.Count; i++)
+        //{
+        //    if (railManager.nodes[i] == neighbours[0])
+        //    {
+        //        visited.Add(railManager.nodes[i]);
+        //        distances[i] = 0.0f;
+        //        break;
+        //    }
+        //}
+
+        //for (int i = 0; i < visited.Last().neighbours.Count; i++)
+        //{
+        //    if (visited.Last().neighbours.Contains(visited.Last().neighbours[i]))
+        //    { continue; }
 
 
+        //}
 
-        // Go in each direction
+        //foreach (RailNode nodes in neighbours)
+        //{
+        //    for (int i = 0; i < nodes.neighbours.Count; i++)
+        //    {
+        //        if (nodes == neighbours[i])
+        //        {
+        //            visited.Add(nodes);
+        //            startIndex = i;
+        //        }
+        //        else
+        //            distance += neighbourDistance[i];
+
+
+        //    }
+        //}
+
+        // Attempt 3?
+        //// Set nodes as infinity
+        //List<float> distance = new List<float>();
+        //List<bool> sptSet = new List<bool>();
+
+        //for (int i = 0; i < railManager.nodes.Count; i++)
+        //{
+        //    sptSet.Add(false);
+        //    distance.Add(float.MaxValue);
+        //}
+
+        //visited.Add(neighbours[0]);
+        //toVisit.Enqueue(neighbours[1]);
+
+        //sptSet[0] = true;
+        //distance[0] = 0.0f;
+
+        //sptSet[1] = true;
+        //distance[1] = neighbourDistance[1];
+
+        //foreach (StationNode station in railManager.stationNodes)
+        //{
+        //    // No need to find the shortest path to itself
+        //    if (station == this)
+        //        continue;
+
+        //    for (int i = 0; i < station.neighbours.Count; i++) 
+        //    {
+        //        if (visited.Contains(station.neighbours[i]))
+                    
+        //    }
+        //}
+
+        // Plan
+        // Go in each direction (i.e: do twice)
         // if the station was found in a previous iteration, save the station in the stations List, and the route in the stationRoutes List
         // if the current node is connected to more than two nodes, create another iteration for the second route
         // if there is a junction, split off until you find the station
