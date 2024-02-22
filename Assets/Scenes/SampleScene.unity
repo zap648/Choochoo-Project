@@ -2084,7 +2084,6 @@ MonoBehaviour:
   - {fileID: 1349412125}
   - {fileID: 1366114430}
   - {fileID: 1515902333}
-  looping: 0
   stationNodes:
   - {fileID: 1370885299}
   - {fileID: 2135721534}
@@ -2655,7 +2654,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 9213c95d36704ad4198f1f349a49adf4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
