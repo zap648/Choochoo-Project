@@ -2840,8 +2840,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1889715912300076059, guid: bd8de894987ae0f4a9fb33d8256f3e29,
         type: 3}
+      propertyPath: isLooping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1889715912300076059, guid: bd8de894987ae0f4a9fb33d8256f3e29,
+        type: 3}
       propertyPath: stationPlan.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1889715912300076059, guid: bd8de894987ae0f4a9fb33d8256f3e29,
         type: 3}

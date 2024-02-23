@@ -172,8 +172,8 @@ public class StationNode : MonoBehaviour
         // Plan
         // Go in each direction (i.e: do twice)
         // if the station was found in a previous iteration, save the station in the stations List, and the route in the stationRoutes List
-        // if the current node is connected to more than two nodes, create another iteration for the second route
-        // if there is a junction, split off until you find the station
+        // if the current node is connected to more than two nodes, create another iteration for the second route (nodes are only connected to two nodes, so far)
+        // if there is a junction, split off until you find the station (what does "split off" mean?)
         // if you find the station, 
 
         // It will follow the Nodes until it reaches a Station
