@@ -60,11 +60,11 @@ public class StationRoute
         // Start with the neighbouring nodes of the start node
         toVisit.Add(startStation.neighbours[0]);
         distance.Add(startStation.neighbourDistance[0]);
-        Debug.Log($"{startStation.name}-{endStation.name}: distance[{distance.Count - 1}] which is {toVisit.Last().name} is {distance.Last()} units from {startStation.name}");
+        //Debug.Log($"{startStation.name}-{endStation.name}: distance[{distance.Count - 1}] which is {toVisit.Last().name} is {distance.Last()} units from {startStation.name}");
 
         toVisit.Add(startStation.neighbours[1]);
         distance.Add(startStation.neighbourDistance[1]);
-        Debug.Log($"{startStation.name}-{endStation.name}: distance[{distance.Count - 1}] which is {toVisit.Last().name} is {distance.Last()} units from {startStation.name}");
+        //Debug.Log($"{startStation.name}-{endStation.name}: distance[{distance.Count - 1}] which is {toVisit.Last().name} is {distance.Last()} units from {startStation.name}");
 
         for (int i = 0; i < startStation.neighbours.Count; i++)
         {
@@ -76,7 +76,7 @@ public class StationRoute
                 {
                     toVisit.Add(startStation.neighbours[i].neighbours[x]);
                     distance.Add(startStation.neighbours[i].neighbourDistance[x] + startStation.neighbourDistance[i]);
-                    Debug.Log($"{startStation.name}-{endStation.name}: distance[{distance.Count - 1}] which is {toVisit.Last().name} is {distance.Last()} units from {startStation.name}");
+                    //Debug.Log($"{startStation.name}-{endStation.name}: distance[{distance.Count - 1}] which is {toVisit.Last().name} is {distance.Last()} units from {startStation.name}");
                 }
             }
             visited.Add(toVisit[i]);
@@ -99,7 +99,7 @@ public class StationRoute
                 {
                     toVisit.Add(toVisit[i].neighbours[x]);
                     distance.Add(toVisit[i].neighbourDistance[x] + distance[i]);
-                    Debug.Log($"{startStation.name}-{endStation.name}: distance[{distance.Count - 1}] which is {toVisit.Last().name} is {distance.Last()} units from {startStation.name}");
+                    //Debug.Log($"{startStation.name}-{endStation.name}: distance[{distance.Count - 1}] which is {toVisit.Last().name} is {distance.Last()} units from {startStation.name}");
                 }
             }
 
