@@ -45,8 +45,6 @@ public class Train : RailVehicle
 
     override public void Move()
     {
-        distFromNode += mps * Time.deltaTime;
-
         machine.Update();
 
         transform.rotation = Quaternion.LookRotation(unitVector, Vector3.up);
@@ -55,6 +53,19 @@ public class Train : RailVehicle
             transform.position = prevNode.transform.position + unitVector * distFromNode;
         else
             transform.position = prevNode.transform.position;
+
+        distFromNode += mps * Time.deltaTime;
+    }
+
+    override public void Flip()
+    {
+        RailNode temp = nextNode;
+        nextNode = prevNode;
+        prevNode = temp;
+        unitVector = (nextNode.transform.position - prevNode.transform.position).normalized;
+
+        // Uses the train's extra distance from the bypassed node as its starting position towards the next node
+        distFromNode = nodeDistance - distFromNode;
     }
 
     private void OnDrawGizmos()

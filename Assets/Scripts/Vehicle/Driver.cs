@@ -17,9 +17,12 @@ public class Driver : MonoBehaviour
     [SerializeField] int routeNr;
     [SerializeField] List<StationNode> stationPlan; // The list of stations the train is planning to go through
     [SerializeField] List<RailNode> railRoute; // The list of railNodes the train is planning to go through
+    [SerializeField] int railNr;
     [SerializeField] float waitTime;
     [SerializeField] float storedWaitTime;  // How long will the train wait at its current station (in seconds)
     [SerializeField] bool isLooping;    // Is the train repeating its trip?
+
+    private StationRoute route;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +32,7 @@ public class Driver : MonoBehaviour
         train.machine.Initialize(train.machine.accelerateState);
 
         routeNr = 0;
+        railNr = 0;
         waitTime = storedWaitTime;
         isDriving = true;
     }
@@ -45,7 +49,15 @@ public class Driver : MonoBehaviour
 
         if (train.distFromNode > train.nodeDistance && train.nextNode.neighbours.Count > 1 || train.distFromNode < 0 && train.prevNode.neighbours.Count > 1)
         {
-            train.Turn(null);
+            if (railRoute == null || railNr >= railRoute.Count)
+            {
+                train.Turn(null);
+            }
+            else
+            {
+                railNr++;
+                train.Turn(railRoute[railNr + 1]);
+            }
             CheckNearStation();
         }
 
@@ -86,8 +98,14 @@ public class Driver : MonoBehaviour
         fromStation = toStation;
         toStation = stationPlan[routeNr];
 
-        // Set the rail route to the next station
-        //fromStation.GetRoute(toStation);
+        route = fromStation.GetRoute(toStation);
+        railRoute = route.railRoute;
+        railNr = 0;
+
+        if (train.prevNode != railRoute[0])
+        {
+            train.Flip();
+        }
 
         isDriving = true;
     }

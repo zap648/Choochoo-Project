@@ -30,6 +30,11 @@ public class Wagon : RailVehicle
             transform.position = prevNode.transform.position;
     }
 
+    public override void Flip()
+    {
+        
+    }
+
     private void OnDrawGizmos()
     {
         // To Gizmos-draw the Wagon

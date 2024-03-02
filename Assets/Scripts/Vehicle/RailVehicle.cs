@@ -14,6 +14,7 @@ public abstract class RailVehicle : MonoBehaviour
 
     public abstract void Initialize();
     public abstract void Move();
+    public abstract void Flip();
 
     private void Start()
     {
@@ -27,7 +28,17 @@ public abstract class RailVehicle : MonoBehaviour
 
     public void Turn(RailNode toNode)
     {
-        if (toNode == null)
+        if (toNode != null)
+        {
+            // Uses the train's extra distance from the bypassed node as its starting position towards the next node
+            prevNode = nextNode;
+            nextNode = toNode;
+            unitVector = (nextNode.transform.position - prevNode.transform.position).normalized;
+
+            // Uses the train's extra distance from the bypassed node as its starting position towards the next node
+            distFromNode -= nodeDistance;
+        }
+        else
         {
             // If the Vehicle has passed the (length of the) nextNode, It will turn
             if (distFromNode > nodeDistance)
@@ -59,9 +70,9 @@ public abstract class RailVehicle : MonoBehaviour
                 // Uses the train's extra distance from the bypassed node as its starting position towards the next node
                 distFromNode += Vector3.Distance(prevNode.transform.position, nextNode.transform.position);
             }
-
-            // Distance between the two nodes
-            nodeDistance = Vector3.Distance(prevNode.transform.position, nextNode.transform.position);
         }
+
+        // Distance between the two nodes
+        nodeDistance = Vector3.Distance(prevNode.transform.position, nextNode.transform.position);
     }
 }

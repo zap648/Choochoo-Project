@@ -2846,7 +2846,7 @@ PrefabInstance:
     - target: {fileID: 1889715912300076059, guid: bd8de894987ae0f4a9fb33d8256f3e29,
         type: 3}
       propertyPath: stationPlan.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1889715912300076059, guid: bd8de894987ae0f4a9fb33d8256f3e29,
         type: 3}
@@ -2868,6 +2868,26 @@ PrefabInstance:
       propertyPath: stationPlan.Array.data[3]
       value: 
       objectReference: {fileID: 487247953}
+    - target: {fileID: 1889715912300076059, guid: bd8de894987ae0f4a9fb33d8256f3e29,
+        type: 3}
+      propertyPath: stationPlan.Array.data[4]
+      value: 
+      objectReference: {fileID: 2135721534}
+    - target: {fileID: 1889715912300076059, guid: bd8de894987ae0f4a9fb33d8256f3e29,
+        type: 3}
+      propertyPath: stationPlan.Array.data[5]
+      value: 
+      objectReference: {fileID: 2135721534}
+    - target: {fileID: 1889715912300076059, guid: bd8de894987ae0f4a9fb33d8256f3e29,
+        type: 3}
+      propertyPath: stationPlan.Array.data[6]
+      value: 
+      objectReference: {fileID: 2135721534}
+    - target: {fileID: 1889715912300076059, guid: bd8de894987ae0f4a9fb33d8256f3e29,
+        type: 3}
+      propertyPath: stationPlan.Array.data[7]
+      value: 
+      objectReference: {fileID: 2135721534}
     - target: {fileID: 1979484879671249591, guid: bd8de894987ae0f4a9fb33d8256f3e29,
         type: 3}
       propertyPath: m_Enabled
