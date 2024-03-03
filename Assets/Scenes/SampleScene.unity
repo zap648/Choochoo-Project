@@ -575,7 +575,7 @@ PrefabInstance:
     - target: {fileID: 2819154411231536483, guid: 84f49c37d38f91741ace5da2ec4de86c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -654,7 +654,7 @@ PrefabInstance:
     - target: {fileID: 2819154411231536483, guid: 84f49c37d38f91741ace5da2ec4de86c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2850,11 +2850,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1889715912300076059, guid: bd8de894987ae0f4a9fb33d8256f3e29,
         type: 3}
-      propertyPath: isLooping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1889715912300076059, guid: bd8de894987ae0f4a9fb33d8256f3e29,
-        type: 3}
       propertyPath: stationPlan.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -2918,6 +2913,11 @@ PrefabInstance:
       propertyPath: prevNode
       value: 
       objectReference: {fileID: 1321760791}
+    - target: {fileID: 3402729488451784901, guid: bd8de894987ae0f4a9fb33d8256f3e29,
+        type: 3}
+      propertyPath: wagons.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3402729488451784901, guid: bd8de894987ae0f4a9fb33d8256f3e29,
         type: 3}
       propertyPath: wagons.Array.data[0]
@@ -3069,7 +3069,7 @@ PrefabInstance:
     - target: {fileID: 2819154411231536483, guid: 84f49c37d38f91741ace5da2ec4de86c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
